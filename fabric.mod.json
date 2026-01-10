@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "lcsl",
+  "version": "${version}",
+
+  "name": "Lightly Colored Sea Lanterns",
+  "description": "Add colored Sea Lanterns",
+  "authors": [
+    "Yhord"
+  ],
+  "contact": {
+    "homepage": "",
+    "sources": "https://github.com/Yhord/lightly-colored-sea-lanterns"
+  },
+
+  "license": "MIT",
+  "icon": "assets/lcsl/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.yhord.lightly.colored.sea.lanterns.LightlyColoredSeaLanterns"
+    ]
+  },
+  "mixins": [
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.15.0",
+    "fabric": "*",
+    "minecraft": "1.21.1",
+    "java": ">=21"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}
