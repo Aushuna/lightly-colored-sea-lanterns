@@ -1,0 +1,18 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_sea_lantern": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          { "item": "minecraft:sea_lantern" }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "recipes": [
+      "lcsl:cyan_sea_lantern"
+    ]
+  }
+}

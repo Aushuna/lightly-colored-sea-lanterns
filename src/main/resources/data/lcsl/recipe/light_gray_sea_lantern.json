@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "pattern": [
     "SSS",
     "SDS",
@@ -12,5 +13,6 @@
   "result": {
     "id": "lcsl:light_gray_sea_lantern",
     "count": 8
-  }
+  },
+  "group": "newRecipes"
 }

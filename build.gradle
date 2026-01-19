@@ -1,16 +1,23 @@
 plugins {
-	id 'fabric-loom' version '1.6.1'
+	id 'fabric-loom' version '1.6-SNAPSHOT'
 	id 'maven-publish'
 }
 
-version = project.mod_version
 group = project.maven_group
+version = project.mod_version
 base {
 	archivesName = project.archives_base_name
 }
 
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(21)
+	}
+	withSourcesJar()
+}
+
 repositories {
-	// Keep empty unless you add other mod deps.
+	// Loom adds required repos automatically
 }
 
 dependencies {
@@ -18,7 +25,7 @@ dependencies {
 	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
-	// Fabric API (recommended)
+	// Fabric API (REQUIRED for your mod)
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 }
 
@@ -32,40 +39,21 @@ processResources {
 
 tasks.withType(JavaCompile).configureEach {
 	options.encoding = "UTF-8"
-	// Minecraft 1.21.x uses Java 21.
-	options.release = 21
-}
-
-java {
-	toolchain {
-		languageVersion = JavaLanguageVersion.of(21)
-	}
-	withSourcesJar()
+	options.release.set(21)
 }
 
 jar {
 	from("LICENSE") {
-		rename { "${it}_${project.base.archivesName.get()}" }
+		rename { "${it}_${base.archivesName.get()}" }
 	}
 }
 
 publishing {
 	publications {
-		mavenJava(MavenPublication) {
-			artifact(remapJar) {
-				builtBy remapJar
-			}
-			artifact(sourcesJar) {
-				builtBy remapSourcesJar
-			}
+		create("mavenJava", MavenPublication) {
+			artifactId = project.archives_base_name
+
+			from components.java
 		}
 	}
-	// See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
-	repositories {
-		// Add repositories to publish to here.
-		// Notice: This block does NOT have the same function as the block in the top level.
-		// The repositories here will be used for publishing your artifact, not for
-		// retrieving dependencies.
-	}
 }
-
