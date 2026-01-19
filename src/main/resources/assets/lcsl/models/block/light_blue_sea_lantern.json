@@ -1,6 +1,6 @@
 {
-  "parent": "block/cube_all",
+  "parent": "minecraft:block/sea_lantern",
   "textures": {
-    "all": "lcsl:blocks/light_blue_sea_lantern"
+    "all": "lcsl:block/light_blue_sea_lantern"
   }
 }

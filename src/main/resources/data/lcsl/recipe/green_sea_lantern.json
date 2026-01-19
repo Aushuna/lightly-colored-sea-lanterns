@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "SSS",
+    "SDS",
+    "SSS"
+  ],
+  "key": {
+    "S": { "item": "minecraft:sea_lantern" },
+    "D": { "item": "minecraft:green_dye" }
+  },
+  "result": {
+    "id": "lcsl:green_sea_lantern",
+    "count": 8
+  },
+  "group": "newRecipes"
+}
